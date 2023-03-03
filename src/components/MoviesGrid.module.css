@@ -1,8 +1,8 @@
 .MoviesGrid{
     display: grid;
-    grid-template-columns: repeat(auto-fill, 190px);
+    grid-template-columns: repeat(auto-fill, 19 0px);
     padding: 40px;
-    gap: 40px;
+    gap: 50px;
     justify-content: center;
 }
 
