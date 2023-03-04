@@ -18,12 +18,8 @@ export default function MovieDetails() {
     });
   }, [movieId]);
 
-  if (true) { //IsLoading va aqui
+  if (!movie || isLoading) { 
     return <Spinner/>;
-  }
-
-  if (!movie) {
-    return null;
   }
 
   const imageUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;

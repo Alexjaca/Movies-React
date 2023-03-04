@@ -4,5 +4,5 @@ import { FaSpinner } from 'react-icons/fa';
 
 export function Spinner(){
     return (<div className={styles.isLoading}>
-        <FaSpinner size={120}/></div>);
+        <FaSpinner className={styles.spinning} size={150}/></div>);
 }

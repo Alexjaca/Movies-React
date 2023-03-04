@@ -14,7 +14,3 @@ root.render(<App/>);
 reportWebVitals();
 
 
-
-
-///VIDEO 03 MINUTO 17
-
