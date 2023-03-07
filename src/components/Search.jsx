@@ -13,7 +13,7 @@ export function Search() {
   const search = query.get("search"); //obteniendo// ?search= (valor)
 
   useEffect(()=>{
-      setSeacrhText(search || "");   
+      setSeacrhText(search || "");
   }, [search]);
 
   const handleSubmit= (e) =>{
@@ -25,7 +25,7 @@ export function Search() {
   return (
     <form className={styles.searchContainer} onSubmit={handleSubmit}>
       <div className={styles.searchBox}> 
-        <input type="text" className={styles.searchInput} placeholder="Search Movie"
+        <input id="textSearch" type="text" className={styles.searchInput} placeholder="Search Movie"
         onChange={(e)=> setSeacrhText(e.target.value.toLowerCase())}/>
         <button type="submit" className={styles.searchButton}><FaSearch size={20}/></button>
       </div>

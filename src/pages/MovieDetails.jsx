@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styles from "./MovieDetails.module.css";
 import { get } from "../utils/httpClient";
 import { Spinner } from "../components/Spinner";
+//import Moment from "react-moment";
 
 export default function MovieDetails() {
   const { movieId } = useParams();
@@ -42,6 +43,10 @@ export default function MovieDetails() {
         <p>
           <strong>Genero: </strong>
           {movie.genres.map((genre) => genre.name).join(" , ")}
+        </p>
+        <p>
+          <strong>Fecha: </strong>
+          {movie.release_date}  
         </p>
         <p>
           <strong>Description: </strong>

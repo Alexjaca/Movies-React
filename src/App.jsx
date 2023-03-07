@@ -24,6 +24,3 @@ export default function App() {
   );
 }
 
-var Movie = () => {
-  return <h1>Movie</h1>;
-};
