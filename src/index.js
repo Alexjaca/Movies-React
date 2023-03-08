@@ -13,5 +13,4 @@ root.render(<App/>);
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-
-//video 04 minuto 07
+//
