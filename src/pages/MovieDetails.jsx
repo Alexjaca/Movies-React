@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styles from "./MovieDetails.module.css";
 import { get } from "../utils/httpClient";
 import { Spinner } from "../components/Spinner";
+import { getMovieImg } from "../utils/getMovieImg";
 //import Moment from "react-moment";
 
 export default function MovieDetails() {
@@ -23,7 +24,7 @@ export default function MovieDetails() {
     return <Spinner/>;
   }
 
-  const imageUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
+  const imageUrl = getMovieImg(movie.poster_path, 500);
   return (
     <div className={styles.detailsContainer}>
       <img

@@ -1,7 +1,8 @@
 .isLoading{
     display: flex;
     justify-content: center;
-    padding-top: 50px;
+ 
+    margin: 20px;
 }
 
 .spinning {

@@ -8,7 +8,7 @@ export default function App() {
     <Router>
       <header>
         <Link to="/">
-          <h1 className={styles.title}>Movies</h1>
+          <h1 className={styles.title}>JAC Movies</h1>
         </Link>
       </header>
       <main>
