@@ -10,7 +10,7 @@ export default function App() {
       <header>
         <Link to="/">
           <div className={styles.container}>
-          <h1 className={styles.title}>JAC Movies <img src={tachira} alt="tachira" className={styles.tachira}/></h1>
+          <h1 className={styles.title}>Tachira Movies <img src={tachira} alt="tachira" className={styles.tachira}/></h1>
           
           </div>
         </Link>
