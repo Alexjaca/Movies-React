@@ -4,37 +4,46 @@ import styles from "./MoviesGrid.module.css";
 import { useEffect, useState } from "react";
 import { get } from "../utils/httpClient";
 import { Spinner } from "./Spinner";
-import { useQuery } from "../hooks/useQuery";
+import InfiniteScroll from "react-infinite-scroll-component";
+import {Empty} from "./Empty";
 
 
-export default function MoviesGrid() {
+export default function MoviesGrid({search}) {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
 
-  //const location = useLocation();
 
-  const query = useQuery();
-  const search = query.get("search"); //obteniendo// ?search= (valor)
 
   useEffect(() => {
     setIsLoading(true);
     // es un if search existe y si no poner "/discover/movie"
-    const searchUrl = search ? "/search/movie?query=" + search : "/discover/movie";                          
+    const searchUrl = search 
+    ? "/search/movie?query=" + search + "&page=" + page
+    : "/discover/movie?page=" + page;                          
     get(searchUrl).then((data) => {
-      setMovies(data.results);
+      setMovies((prevMovies)=> prevMovies.concat(data.results));//aqui esta el error me concatena en la busqueda
+      setHasMore(data.page < data.total_pages);
       setIsLoading(false);
     });
-  }, [search]);
+  }, [search, page]);
 
-  if (isLoading) {
-    return <Spinner />;
+  if(!isLoading && movies.length === 0){
+    return <Empty/>
   }
 
   return (
+  <InfiniteScroll 
+  dataLength={movies.length} 
+  hasMore={hasMore} 
+  next={()=> setPage((prevPage) => prevPage + 1)}
+  loader={<Spinner />}>
     <ul className={styles.MoviesGrid}>
       {movies.map((movie) => (
         <MovieCard key={movie.id} movies={movie} />
       ))}
     </ul>
+  </InfiniteScroll>
   );
 }

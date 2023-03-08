@@ -1,0 +1,8 @@
+.noResoults{
+    display: grid;
+    justify-content: center;
+}
+
+.noResoults img{
+    padding-top: 100px;
+}
